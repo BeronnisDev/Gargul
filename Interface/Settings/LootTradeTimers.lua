@@ -30,7 +30,7 @@ function LootTradeTimers:draw(Parent)
         local value = tonumber(Slider:GetValue());
 
         if (type(value) ~= nil) then
-            GL.Settings:set("LootTradeTimers.maximumNumberOfBars", min(value, 12));
+            GL.Settings:set("LootTradeTimers.maximumNumberOfBars", min(value, 100));
             Interface.TradeTime.Overview:refresh();
         end
     end);
