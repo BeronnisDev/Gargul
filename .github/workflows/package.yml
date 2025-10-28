@@ -3,7 +3,7 @@ name: Package and release
 on:
   push:
     tags:
-      - '**'
+      - "**"
 
 jobs:
   release:
@@ -20,27 +20,27 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Package and release Cata
-        uses: BigWigsMods/packager@master
-        with:
-          args: "-o -u -S -m .pkgmeta -g cata"
+      # - name: Package and release Cata
+      #   uses: BigWigsMods/packager@master
+      #   with:
+      #     args: "-o -u -S -m .pkgmeta -g cata"
 
-      - name: Package and release Retail
-        uses: BigWigsMods/packager@master
-        with:
-          args: "-o -u -S -m .pkgmeta -g retail"
+      # - name: Package and release Retail
+      #   uses: BigWigsMods/packager@master
+      #   with:
+      #     args: "-o -u -S -m .pkgmeta -g retail"
 
       - name: Package and release Era
         uses: BigWigsMods/packager@master
         with:
           args: "-o -u -S -m .pkgmeta -g classic"
 
-      - name: Package and release Wrath
-        uses: BigWigsMods/packager@master
-        with:
-          args: "-o -u -S -m .pkgmeta -g wrath"
+      # - name: Package and release Wrath
+      #   uses: BigWigsMods/packager@master
+      #   with:
+      #     args: "-o -u -S -m .pkgmeta -g wrath"
 
-      - name: Package and release Mists
-        uses: BigWigsMods/packager@master
-        with:
-          args: "-o -u -S -m .pkgmeta -g mists"
+      # - name: Package and release Mists
+      #   uses: BigWigsMods/packager@master
+      #   with:
+      #     args: "-o -u -S -m .pkgmeta -g mists"
