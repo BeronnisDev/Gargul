@@ -136,17 +136,23 @@ function SoftRes:handleWhisperCommand(_, message, sender)
     local name = GL:disambiguateName(sender);
 
     -- Fetch everything soft-reserved by the sender
-    local Reserves = GL:tableGet(self.MaterializedData.DetailsByPlayerName, string.format(
-        "%s.Items",
-        string.lower(name)
-    ), {});
+    local PlayerDetails = self:getDetailsForPlayer(name);
+    local Reserves = GL:tableGet(PlayerDetails, "Items", {});
 
     -- Nothing reserved
     if (GL:empty(Reserves)) then
-        GL:sendChatMessage(
-            L.CHAT["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"],
-            "WHISPER", nil, sender
-        );
+        -- Check if player has any SR data at all
+        if (PlayerDetails.hasExplicitSoftReserves) then
+            GL:sendChatMessage(
+                L.CHAT["You have explicitly reserved 0 items."],
+                "WHISPER", nil, sender
+            );
+        else
+            GL:sendChatMessage(
+                L.CHAT["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"],
+                "WHISPER", nil, sender
+            );
+        end
 
         return;
     end
@@ -361,6 +367,8 @@ function SoftRes:materializeData()
                 GL:tableSet(DetailsByPlayerName, name .. ".Items", {});
                 DetailsByPlayerName[name].note = note;
                 DetailsByPlayerName[name].class = class;
+                DetailsByPlayerName[name].hasExplicitSoftReserves = true; -- Track if player has any SR data
+                print("Player ".. name .. " explict " .. tostring(DetailsByPlayerName[name].hasExplicitSoftReserves))
 
                 if (GL:higherThanZero(plusOnes)) then
                     DetailsByPlayerName[name].plusOnes = plusOnes;
@@ -1186,9 +1194,7 @@ function SoftRes:importGargulData(data)
 
             PlusOnes[name] = plusOnes;
 
-            if (hasItems) then
-                tinsert(SoftReserveEntries, PlayerEntry);
-            end
+            tinsert(SoftReserveEntries, PlayerEntry);
         end
     end
 
@@ -1504,7 +1510,9 @@ function SoftRes:playersWithoutSoftReserves()
     -- Materialized data is available, use it!
     if (not GL:empty(self.MaterializedData.DetailsByPlayerName)) then
         for _, playerName in pairs(GL.User:groupMemberNames()) do
-            if (not self.MaterializedData.DetailsByPlayerName[string.lower(playerName)]) then
+            local playerDetails = self.MaterializedData.DetailsByPlayerName[string.lower(playerName)];
+            -- Only include players who have no SR data at all (not just 0 items)
+            if (not playerDetails or not playerDetails.hasExplicitSoftReserves) then
                 tinsert(PlayerNames, GL:capitalize(playerName));
             end
         end

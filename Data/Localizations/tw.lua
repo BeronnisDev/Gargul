@@ -905,6 +905,7 @@ L["No hard-reserve info available"] = "沒有可用的硬性保留訊息";
 L["Post missing SRs"] = "發布缺少的 SR";
 L["Post SR URL"] = "發佈 SR 網址";
 L["This player did not reserve anything!"] = "該玩家沒有保留任何東西！";
+L["This player explicitly reserved 0 items."] = "該玩家明確保留了0件物品。";
 L["%s (%sx)"] = "%s (%sx)";
 L["Attempting to process incoming SoftRes data from %s"] = "正在嘗試處理來自 %s 的傳入 SoftRes 數據";
 L["This item is hard-reserved"] = "此商品為硬性保留商品";

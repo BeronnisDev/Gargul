@@ -68,6 +68,7 @@ L.CHAT = {
         ["You reserved %s"] = "Du hast %s reserviert", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "Es scheint, als hättest du noch nichts reserviert. Sieh dir die Soft-Reserve Website an oder frage deinen Plündermeister",
+        ["You have explicitly reserved 0 items."] = "Du hast explizit 0 Gegenstände reserviert.",
         ["%s (This item is hard-reserved!)"] = "%s (Dieser Gegenstand ist hard-reserved!)",
         ["Reserved by: %s"] = "Reserviert von: %s",
         ["Missing soft-reserves from: %s"] = "Fehlende Soft-Reserves von: %s",
@@ -188,6 +189,7 @@ L.CHAT = {
         ["You reserved %s"] = "您已预订 %s", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "您似乎还没有软保留任何东西，请检查软保留表或询问您的战利品分配者",
+        ["You have explicitly reserved 0 items."] = "您明确保留了0件物品。",
         ["%s (This item is hard-reserved!)"] = "%s（该物品是硬保留的！）",
         ["Reserved by: %s"] = "保留者：%s",
         ["Missing soft-reserves from: %s"] = "缺少软保留：%s",
@@ -304,6 +306,7 @@ L.CHAT = {
         ["You reserved %s"] = "Reservaste %s", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "Parece que aún no has reservado nada, consulta la hoja de resolución suave o pregúntale a tu maestro del botín.",
+        ["You have explicitly reserved 0 items."] = "Has reservado explícitamente 0 artículos.",
         ["%s (This item is hard-reserved!)"] = "%s (¡Este artículo está reservado!)",
         ["Reserved by: %s"] = "Reservado por: %s",
         ["Missing soft-reserves from: %s"] = "Faltan reservas flexibles de: %s",
@@ -423,6 +426,7 @@ L.CHAT = {
         ["You reserved %s"] = "Vous avez réservé %s", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "Il semble que vous n'ayez pas encore fait de soft-reserve, vérifiez la feuille de soft-res ou demandez à votre maître du butin",
+        ["You have explicitly reserved 0 items."] = "Vous avez explicitement réservé 0 objets.",
         ["%s (This item is hard-reserved!)"] = "%s (Cet objet est hard-reserved !)",
         ["Reserved by: %s"] = "Reservé par : %s",
         ["Missing soft-reserves from: %s"] = "Soft-reserves manquants pour : %s",
@@ -539,6 +543,7 @@ L.CHAT = {
         ["You reserved %s"] = "Hai prenotato %s", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "Sembra che tu non abbia ancora effettuato la prenotazione soft, controlla il foglio soft-res o chiedi al tuo loot master",
+        ["You have explicitly reserved 0 items."] = "Hai esplicitamente prenotato 0 oggetti.",
         ["%s (This item is hard-reserved!)"] = "%s (Questo articolo è prenotato in modo definitivo!)",
         ["Reserved by: %s"] = "Riservato da: %s",
         ["Missing soft-reserves from: %s"] = "Riserve software mancanti da: %s",
@@ -655,6 +660,7 @@ L.CHAT = {
         ["You reserved %s"] = "%s을(를) 예약했습니다", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s(%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "아직 소프트 리저브를 하지 않은 것 같습니다. 소프트 레스 시트를 확인하거나 전리품 마스터에게 문의하세요.",
+        ["You have explicitly reserved 0 items."] = "명시적으로 0개의 아이템을 예약했습니다.",
         ["%s (This item is hard-reserved!)"] = "%s (이 항목은 예약되어 있습니다!)",
         ["Reserved by: %s"] = "예약자: %s",
         ["Missing soft-reserves from: %s"] = "다음에서 소프트 예약 누락: %s",
@@ -771,6 +777,7 @@ L.CHAT = {
         ["You reserved %s"] = "Você reservou %s", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "Parece que você ainda não fez reserva temporária de nada, verifique a folha de resolução suave ou pergunte ao seu mestre de saque",
+        ["You have explicitly reserved 0 items."] = "Você explicitamente reservou 0 itens.",
         ["%s (This item is hard-reserved!)"] = "%s (Este item é reservado!)",
         ["Reserved by: %s"] = "Reservado por: %s",
         ["Missing soft-reserves from: %s"] = "Reservas temporárias ausentes de: %s",
@@ -890,6 +897,7 @@ L.CHAT = {
         ["You reserved %s"] = "Ваш софтрезерв %s", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "Похоже, вы еще ничего не резервировали, проверьте таблицу софтрезерва или спросите ответственного за добычу.",
+        ["You have explicitly reserved 0 items."] = "Вы явно зарезервировали 0 предметов.",
         ["%s (This item is hard-reserved!)"] = "%s (Этот предмет в хардрезерве!)",
         ["Reserved by: %s"] = "Софтрезерв: %s",
         ["Missing soft-reserves from: %s"] = "Отсутствуют софтрезервы от: %s",
@@ -1006,6 +1014,7 @@ L.CHAT = {
         ["You reserved %s"] = "您已預訂 %s", -- %s is a summary of all items or the ["%s (%sx)"] format (if more than 1 reserve)
         ["%s (%sx)"] = "%s (%sx)", -- First %s = item, second %s is times reserved if higher than 1
         ["It seems like you didn't soft-reserve anything yet, check the soft-res sheet or ask your loot master"] = "您似乎還沒有軟保留任何東西，請檢查軟資源表或詢問您的戰利品大師",
+        ["You have explicitly reserved 0 items."] = "您明確保留了0件物品。",
         ["%s (This item is hard-reserved!)"] = "%s（該商品是硬性保留的！）",
         ["Reserved by: %s"] = "保留者：%s",
         ["Missing soft-reserves from: %s"] = "缺少軟儲備：%s",

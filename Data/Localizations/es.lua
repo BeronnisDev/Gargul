@@ -902,6 +902,7 @@ L["No hard-reserve info available"] = "No hay información de reserva dura dispo
 L["Post missing SRs"] = "Publicar SR faltantes";
 L["Post SR URL"] = "Publicar URL SR";
 L["This player did not reserve anything!"] = "¡Este jugador no reservó nada!";
+L["This player explicitly reserved 0 items."] = "Este jugador reservó explícitamente 0 artículos.";
 L["%s (%sx)"] = "%s (%sx)";
 L["Attempting to process incoming SoftRes data from %s"] = "Intentando procesar datos SoftRes entrantes de %s";
 L["This item is hard-reserved"] = "Este artículo está reservado";

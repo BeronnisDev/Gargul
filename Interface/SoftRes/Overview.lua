@@ -324,6 +324,21 @@ function Overview:refreshDetailsFrame()
         return;
     end
 
+    -- Check if player has 0 explicit items but has SR data
+    local Items = GL:tableGet(SoftResDetails, "Items", {});
+    local numberOfItems = 0;
+
+    for _, numberOfReserves in pairs(Items) do
+        numberOfItems = numberOfItems + numberOfReserves;
+    end
+
+    -- If player has an entry in SoftResDetails but 0 items, they explicitly reserved 0 items
+    if (numberOfItems == 0) then
+        Note:SetText(L["This player explicitly reserved 0 items."]);
+        Note:SetColor(0, 1, 0);
+        return;
+    end
+
     local note = GL:tableGet(SoftResDetails, "note", "-");
     local Items = GL:tableGet(SoftResDetails, "Items", {});
     Note:SetText(note);
@@ -524,11 +539,16 @@ function Overview:drawCharacterTable(Parent)
             numberOfSoftReservedItems = numberOfSoftReservedItems + numberOfReserves;
         end
 
+        if numberOfSoftReservedItems < 1 and not Entry.hasExplicitSoftReserves then
+            numberOfSoftReservedItems = -1 -- Indicate no SR data at all
+        end
+
         local SoftReserveColor = { r = 0, g = 1, b = 0, a = 1, };
 
-        if (numberOfSoftReservedItems < 1) then
-            SoftReserveColor = {r = 1, g = 0, b = 0, a = 1, };
-        end
+        -- Show red only if player has no SR data at all, green if they have 0 explicit items
+          if (numberOfSoftReservedItems < 0) then
+              SoftReserveColor = {r = 1, g = 0, b = 0, a = 1, }; -- Red for no SR data
+          end
 
         if (GL:higherThanZero(plusOnes)) then
             plusOnes = L["+"] .. plusOnes;
