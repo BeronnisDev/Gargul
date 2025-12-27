@@ -368,7 +368,6 @@ function SoftRes:materializeData()
                 DetailsByPlayerName[name].note = note;
                 DetailsByPlayerName[name].class = class;
                 DetailsByPlayerName[name].hasExplicitSoftReserves = true; -- Track if player has any SR data
-                print("Player ".. name .. " explict " .. tostring(DetailsByPlayerName[name].hasExplicitSoftReserves))
 
                 if (GL:higherThanZero(plusOnes)) then
                     DetailsByPlayerName[name].plusOnes = plusOnes;
