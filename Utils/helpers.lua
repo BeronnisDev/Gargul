@@ -323,7 +323,7 @@ function GL:afterCombatDo(func, whenInCombatFunc)
         whenInCombatFunc();
     end
 
-    local eventID = self:uuid() .. GetTime() .. math.random(1, 1000);
+    local eventID = "afterCombat" .. self:uuid() .. GetTime() .. math.random(1, 1000);
     self.Events:register(eventID, "PLAYER_REGEN_ENABLED", function ()
         GL.Events:unregister(eventID);
         return func();
@@ -1282,8 +1282,16 @@ function GL:interval(seconds, identifier, func)
     return GL.Timers[identifier];
 end
 
----@param identifier string
+---@param identifier string|string[]:string
 function GL:cancelTimer(identifier)
+    if (type(identifier) == "table") then
+        for _, timerID in pairs(identifier) do
+            GL:cancelTimer(timerID);
+        end
+
+        return;
+    end
+
     if (not GL.Timers[identifier]) then
         return;
     end
@@ -2209,6 +2217,9 @@ end
 ---@param itemID number
 ---@param forSoftRes? boolean
 ---@return table
+---
+---@test /dump _G.Gargul:getLinkedItemsForID(94955, true);
+---@test /dump _G.Gargul:getLinkedItemsForID(96890, true);
 function GL:getLinkedItemsForID(itemID, forSoftRes)
     forSoftRes = forSoftRes == true;
 
@@ -2234,12 +2245,12 @@ function GL:getLinkedItemsForID(itemID, forSoftRes)
 
     ---@type function
     local linkItems;
-
     linkItems = function (ID)
+        Links[ID] = true;
         local LinkedItems = GL.Data.NormalModeHardModeLinks[ID];
-        local type = type(LinkedItems);
+        local linkType = type(LinkedItems);
 
-        if (type == "table") then
+        if (linkType == "table") then
             for _, linkedID in pairs(LinkedItems) do
                 linkItems(linkedID);
             end
@@ -2247,12 +2258,18 @@ function GL:getLinkedItemsForID(itemID, forSoftRes)
             return;
         end
 
-        if (type == "number") then
-            Links[LinkedItems] = true;
-        end
+        if (linkType == "number") then
+            local parentItemID = LinkedItems;
+            Links[parentItemID] = true;
+            LinkedItems = GL.Data.NormalModeHardModeLinks[parentItemID];
 
-        if (type == "nil") then
-            Links[ID] = true;
+            if (type(LinkedItems) ~= "table") then
+                LinkedItems = { LinkedItems };
+            end
+
+            for _, linkedID in pairs(LinkedItems or {}) do
+                Links[linkedID] = true;
+            end
         end
     end;
 

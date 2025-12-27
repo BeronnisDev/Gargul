@@ -5,7 +5,7 @@ local _, GL = ...;
 GL.Data = GL.Data or {};
 
 local NormalModeHardModeLinks = {
-	-- Cobra-Lash Boots
+    -- Cobra-Lash Boots
     [30104] = 33482,
     -- Gladiator's Felweave Amice
     [30186] = 42718,
@@ -10478,6 +10478,8 @@ local NormalModeHardModeLinks = {
 GL.Data.NormalModeHardModeLinks = NormalModeHardModeLinks;
 
 -- Materialize data for ease of use during runtime
+--- @test /dump _G.Gargul.Data.NormalModeHardModeLinks[94955];
+--- @test /dump _G.Gargul.Data.NormalModeHardModeLinks[96890];
 _G.C_Timer.After(8, function ()
     GL:afterCombatDo(function ()
         local AdditionalEntries = {};
